@@ -2,22 +2,31 @@
   "name": "solsort-util",
   "version": "0.0.1",
   "description": "Various utility functions not extracted to separate repository yet",
-  "main": "solsort-util.js",
+  "icon": "icon.png",
+  "main": "index.js",
+  "browser": "dist.js",
   "scripts": {
-    "test": "electron-testrunner solsort-util"
+    "build": "webpack",
+    "autobuild": "webpack --watch",
+    "liveserver": "live-server --ignore=node_modules",
+    "dev": "webpack --watch & npm run liveserver",
+    "test": "electron-testrunner dist.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/solsort/solsort-util.git"
   },
-  "keywords": [ ],
-  "author": "RasmusErik / solsort.com",
+  "author": "RasmusErik Voel Jensen <npmjs@solsort.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/solsort/solsort-util/issues"
   },
-  "homepage": "http://solsort-util.solsort.com",
+  "homepage": "https://solsort-util.solsort.com/",
+  "dependencies": {
+  },
   "devDependencies": {
-    "electron-testrunner": "^0.1.0"
+    "electron-testrunner": "^0.1.0",
+    "live-server": "^1.2.0",
+    "webpack": "^2.2.1"
   }
 }

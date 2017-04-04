@@ -1,4 +1,6 @@
-export function str(o) { 
+// Various utility functions
+
+export function str(o) { // ##
   try {
     return JSON.stringify(o, null, 2);
   } catch(e) {
@@ -6,30 +8,33 @@ export function str(o) {
   }
 }
 
-export function randomId() {
+export function randomId() { // ##
   return Math.random().toString(36).slice(2,12);
 }
 
-export let file2url = (f) => new Promise((resolve) => {
+export let file2url = (f) => new Promise // ##
+((resolve) => { 
   let reader = new FileReader();
   reader.addEventListener('load', () => resolve(reader.result));
   reader.readAsDataURL(f);
 });
 
-export let loadImage = (src) => new Promise((resolve, reject) => {
+export let loadImage = (src) => new Promise  // ##
+((resolve, reject) => {
   let img = new Image();
   img.src = src;
   img.onload = () => resolve(img);
   img.onerror = reject;
 });
 
-export let escapeXml = str =>
+export let escapeXml = str => // ##
   str
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;');
 
 
-  /*
+// # Inactive code
+/*
 function nosymb(str) {
   return str.replace(/[^a-zA-Z_0-9]/g, '').toLowerCase();
 }
