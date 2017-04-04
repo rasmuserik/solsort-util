@@ -1,0 +1,23 @@
+{
+  "name": "solsort-util",
+  "version": "0.0.1",
+  "description": "Various utility functions not extracted to separate repository yet",
+  "main": "solsort-util.js",
+  "scripts": {
+    "test": "electron-testrunner solsort-util"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/solsort/solsort-util.git"
+  },
+  "keywords": [ ],
+  "author": "RasmusErik / solsort.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/solsort/solsort-util/issues"
+  },
+  "homepage": "http://solsort-util.solsort.com",
+  "devDependencies": {
+    "electron-testrunner": "^0.1.0"
+  }
+}
