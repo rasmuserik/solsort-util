@@ -25,7 +25,7 @@
   "dependencies": {
   },
   "devDependencies": {
-    "electron-testrunner": "^0.1.0",
+    "electron-testrunner": "^0.1.1",
     "live-server": "^1.2.0",
     "webpack": "^2.2.1"
   }
