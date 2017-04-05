@@ -13,7 +13,7 @@ exports.randomId = function() { // ##
   return Math.random().toString(36).slice(2,12);
 };
 
-exports.file2url = function() { // ##
+exports.file2url = function(f) { // ##
   return new Promise(function(resolve) { 
     var reader = new FileReader();
     reader.addEventListener('load', function() { 
