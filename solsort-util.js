@@ -1,6 +1,7 @@
 // Various utility functions
 
-export function str(o) { // ##
+
+exports.str = (o) => { // ##
   try {
     return JSON.stringify(o, null, 2);
   } catch(e) {
@@ -8,18 +9,17 @@ export function str(o) { // ##
   }
 }
 
-export function randomId() { // ##
-  return Math.random().toString(36).slice(2,12);
-}
+exports.randomId = () => // ##
+  Math.random().toString(36).slice(2,12);
 
-export let file2url = (f) => new Promise // ##
+exports.file2url = (f) => new Promise // ##
 ((resolve) => { 
   let reader = new FileReader();
   reader.addEventListener('load', () => resolve(reader.result));
   reader.readAsDataURL(f);
 });
 
-export let loadImage = (src) => new Promise  // ##
+exports.loadImage = (src) => new Promise  // ##
 ((resolve, reject) => {
   let img = new Image();
   img.src = src;
@@ -27,7 +27,7 @@ export let loadImage = (src) => new Promise  // ##
   img.onerror = reject;
 });
 
-export let escapeXml = str => // ##
+exports.escapeXml = str => // ##
   str
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;');

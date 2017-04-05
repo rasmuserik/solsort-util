@@ -68,18 +68,12 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (immutable) */ __webpack_exports__["str"] = str;
-/* harmony export (immutable) */ __webpack_exports__["randomId"] = randomId;
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "file2url", function() { return file2url; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadImage", function() { return loadImage; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "escapeXml", function() { return escapeXml; });
 // Various utility functions
 
-function str(o) { // ##
+
+exports.str = (o) => { // ##
   try {
     return JSON.stringify(o, null, 2);
   } catch(e) {
@@ -87,18 +81,17 @@ function str(o) { // ##
   }
 }
 
-function randomId() { // ##
-  return Math.random().toString(36).slice(2,12);
-}
+exports.randomId = () => // ##
+  Math.random().toString(36).slice(2,12);
 
-let file2url = (f) => new Promise // ##
+exports.file2url = (f) => new Promise // ##
 ((resolve) => { 
   let reader = new FileReader();
   reader.addEventListener('load', () => resolve(reader.result));
   reader.readAsDataURL(f);
 });
 
-let loadImage = (src) => new Promise  // ##
+exports.loadImage = (src) => new Promise  // ##
 ((resolve, reject) => {
   let img = new Image();
   img.src = src;
@@ -106,7 +99,7 @@ let loadImage = (src) => new Promise  // ##
   img.onerror = reject;
 });
 
-let escapeXml = str => // ##
+exports.escapeXml = str => // ##
   str
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;');

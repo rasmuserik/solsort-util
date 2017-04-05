@@ -1,10 +1,9 @@
 {
   "name": "solsort-util",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Various utility functions not extracted to separate repository yet",
   "icon": "icon.png",
   "main": "solsort-util.js",
-  "browser": "dist.js",
   "scripts": {
     "build": "webpack",
     "autobuild": "webpack --watch",
