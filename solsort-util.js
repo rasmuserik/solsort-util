@@ -1,37 +1,42 @@
 // Various utility functions
 
 
-exports.str = (o) => { // ##
+exports.str = function(o) { // ##
   try {
     return JSON.stringify(o, null, 2);
   } catch(e) {
     return String(o);
   }
-}
+};
 
-exports.randomId = () => // ##
-  Math.random().toString(36).slice(2,12);
+exports.randomId = function() { // ##
+  return Math.random().toString(36).slice(2,12);
+};
 
-exports.file2url = (f) => new Promise // ##
-((resolve) => { 
-  let reader = new FileReader();
-  reader.addEventListener('load', () => resolve(reader.result));
-  reader.readAsDataURL(f);
-});
+exports.file2url = function() { // ##
+  return new Promise(function(resolve) { 
+    let reader = new FileReader();
+    reader.addEventListener('load', function() { 
+      resolve(reader.result); 
+    });
+    reader.readAsDataURL(f);
+  });
+};
 
-exports.loadImage = (src) => new Promise  // ##
-((resolve, reject) => {
-  let img = new Image();
-  img.src = src;
-  img.onload = () => resolve(img);
-  img.onerror = reject;
-});
+exports.loadImage = function(src) { // ##
+  return new Promise(function(resolve, reject) {
+    let img = new Image();
+    img.src = src;
+    img.onload = function() { resolve(img); };
+    img.onerror = reject;
+  });
+};
 
-exports.escapeXml = str => // ##
-  str
+exports.escapeXml = function(str) { // ##
+  return str
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;');
-
+}
 
 // # Inactive code
 /*
