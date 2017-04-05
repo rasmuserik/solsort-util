@@ -15,7 +15,7 @@ exports.randomId = function() { // ##
 
 exports.file2url = function() { // ##
   return new Promise(function(resolve) { 
-    let reader = new FileReader();
+    var reader = new FileReader();
     reader.addEventListener('load', function() { 
       resolve(reader.result); 
     });
@@ -25,7 +25,7 @@ exports.file2url = function() { // ##
 
 exports.loadImage = function(src) { // ##
   return new Promise(function(resolve, reject) {
-    let img = new Image();
+    var img = new Image();
     img.src = src;
     img.onload = function() { resolve(img); };
     img.onerror = reject;

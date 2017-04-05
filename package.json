@@ -1,6 +1,6 @@
 {
   "name": "solsort-util",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Various utility functions not extracted to separate repository yet",
   "icon": "icon.png",
   "main": "solsort-util.js",
