@@ -2,46 +2,46 @@
 
 // ## sleep
 //
-exports.sleep = (time) => 
-  new Promise((resolve, reject) => setTimeout(resolve, time || 0));
+exports.sleep = time => new Promise((resolve, reject) => setTimeout(resolve, time || 0));
 
 // ## str
 //
-exports.str = (o) => {
+exports.str = o => {
   try {
     return JSON.stringify(o, null, 2);
-  } catch(e) {
+  } catch (e) {
     return String(o);
   }
 };
 
 // ## randomId
 //
-exports.randomId = () => Math.random().toString(36).slice(2,12);
+exports.randomId = () => Math.random().toString(36).slice(2, 12);
 
 // ## file2url
 //
-exports.file2url = (f) => new Promise(function(resolve) {  
+exports.file2url = f => new Promise(function (resolve) {
   var reader = new FileReader();
-  reader.addEventListener('load', function() { 
-    resolve(reader.result); 
+  reader.addEventListener('load', function () {
+    resolve(reader.result);
   });
   reader.readAsDataURL(f);
 });
 
 // ## loadImage
 //
-exports.loadImage = (src) => new Promise(function(resolve, reject) {
+exports.loadImage = src => new Promise(function (resolve, reject) {
   var img = new Image();
   img.src = src;
-  img.onload = function() { resolve(img); };
+  img.onload = function () {
+    resolve(img);
+  };
   img.onerror = reject;
 });
 
 // ## escapeXml
 //
-exports.escapeXml = (str) =>
-  str.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+exports.escapeXml = str => str.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 
 // # Inactive code
 /*

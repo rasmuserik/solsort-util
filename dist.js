@@ -1,4 +1,14 @@
-/******/ (function(modules) { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else {
+		var a = factory();
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
+})(this, function() {
+return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -63,47 +73,57 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
 /***/ (function(module, exports) {
 
-// Various utility functions
+// # Various utility functions
 
+// ## sleep
+//
+exports.sleep = time => new Promise((resolve, reject) => setTimeout(resolve, time || 0));
 
-exports.str = (o) => { // ##
+// ## str
+//
+exports.str = o => {
   try {
     return JSON.stringify(o, null, 2);
-  } catch(e) {
+  } catch (e) {
     return String(o);
   }
-}
+};
 
-exports.randomId = () => // ##
-  Math.random().toString(36).slice(2,12);
+// ## randomId
+//
+exports.randomId = () => Math.random().toString(36).slice(2, 12);
 
-exports.file2url = (f) => new Promise // ##
-((resolve) => { 
-  let reader = new FileReader();
-  reader.addEventListener('load', () => resolve(reader.result));
+// ## file2url
+//
+exports.file2url = f => new Promise(function (resolve) {
+  var reader = new FileReader();
+  reader.addEventListener('load', function () {
+    resolve(reader.result);
+  });
   reader.readAsDataURL(f);
 });
 
-exports.loadImage = (src) => new Promise  // ##
-((resolve, reject) => {
-  let img = new Image();
+// ## loadImage
+//
+exports.loadImage = src => new Promise(function (resolve, reject) {
+  var img = new Image();
   img.src = src;
-  img.onload = () => resolve(img);
+  img.onload = function () {
+    resolve(img);
+  };
   img.onerror = reject;
 });
 
-exports.escapeXml = str => // ##
-  str
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;');
-
+// ## escapeXml
+//
+exports.escapeXml = str => str.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 
 // # Inactive code
 /*
@@ -126,7 +146,14 @@ export function loadGoogleFont(font) {
 }
 */
 
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(0);
+
 
 /***/ })
 /******/ ]);
+});
 //# sourceMappingURL=dist.js.map
