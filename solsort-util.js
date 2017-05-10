@@ -1,6 +1,17 @@
 // # Various utility functions
 
-exports.str = (o) => { // ##
+// ## sleep
+//
+exports.sleep(time) {
+  time = time || 0;
+  return new Promise(function(resolve, reject) {
+    setTimeout(resolve, time);
+  });
+}
+
+// ## str
+//
+exports.str = (o) => {
   try {
     return JSON.stringify(o, null, 2);
   } catch(e) {
@@ -8,9 +19,13 @@ exports.str = (o) => { // ##
   }
 };
 
-exports.randomId = () => Math.random().toString(36).slice(2,12); // ##
+// ## randomId
+//
+exports.randomId = () => Math.random().toString(36).slice(2,12);
 
-exports.file2url = (f) => new Promise(function(resolve) {  // ##
+// ## file2url
+//
+exports.file2url = (f) => new Promise(function(resolve) {  
   var reader = new FileReader();
   reader.addEventListener('load', function() { 
     resolve(reader.result); 
@@ -18,14 +33,18 @@ exports.file2url = (f) => new Promise(function(resolve) {  // ##
   reader.readAsDataURL(f);
 });
 
-exports.loadImage = (src) => new Promise(function(resolve, reject) { // ##
+// ## loadImage
+//
+exports.loadImage = (src) => new Promise(function(resolve, reject) {
   var img = new Image();
   img.src = src;
   img.onload = function() { resolve(img); };
   img.onerror = reject;
 });
 
-exports.escapeXml = (str) =>  // ##
+// ## escapeXml
+//
+exports.escapeXml = (str) =>
   str.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 
 // # Inactive code
